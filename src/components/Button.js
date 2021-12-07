@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Button = () => {
-  return (
-    <button className="bg-gray-200 p-4 rounded-bg">BUTTON</button>
-  )
-}
+  return <button className="bg-gray-200 p-4 rounded-bg">BUTTON</button>;
+};
 
-export default Button
+export default Button;

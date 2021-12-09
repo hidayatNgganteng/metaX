@@ -3,5 +3,58 @@
 @tailwind utilities;
 
 body {
-  background-color: #121212;
+  @apply bg-bgDark;
+}
+
+.css-1aznpnh-MuiSlider-root {
+  height: 8px !important;
+  color: transparent !important;
+}
+
+.sliderStyle .MuiSlider-track {
+  @apply from-gradientColorStart;
+  @apply to-gradientColorStop;
+  @apply bg-gradient-to-r;
+}
+
+.sliderStyle .MuiSlider-rail {
+  @apply text-gray-100
+}
+
+.sliderStyle .css-eg0mwd-MuiSlider-thumb {
+  @apply border-6;
+  @apply border-gradientColorStop;
+  @apply h-25px;
+  @apply w-25px;
+  @apply bg-dark;
+}
+
+.sliderStyle .css-1eoe787-MuiSlider-markLabel {
+  @apply text-white;
+  @apply text-sm;
+  @apply opacity-25;
+}
+
+.sliderStyle .css-yafthl-MuiSlider-markLabel {
+  @apply text-white;
+  @apply text-sm;
+  @apply opacity-25;
+}
+
+.sliderStyle .css-6cwnna-MuiSlider-mark {
+  background-color: transparent;
+}
+
+.sliderStyle .MuiSlider-markLabelActive {
+  @apply opacity-100;
+}
+
+.barMenu {
+  background-image: url('./../images/mobile-menu-background.png');
+  @apply w-full;
+  @apply h-66px;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-center;
+  @apply bg-cover bg-center;
 }

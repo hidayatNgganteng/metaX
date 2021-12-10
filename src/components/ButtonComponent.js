@@ -5,7 +5,7 @@ const ButtonComponent = ({ onClickHandle }) => {
   return (
     <button
       onClick={onClickHandle}
-      className="bg-white w-full h-40px rounded hover:bg-bgDark border border-white border-solid"
+      className="bg-white w-full lg:w-343px h-40px rounded hover:bg-bgDark border border-white border-solid"
     >
       <h2 className="text-bgDark text-14px font-bold hover:text-white">
         SEARCH

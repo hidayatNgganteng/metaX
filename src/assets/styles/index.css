@@ -43,7 +43,7 @@ body {
 }
 
 .sliderStyle .css-6cwnna-MuiSlider-mark {
-  background-color: transparent;
+  @apply bg-transparent;
 }
 
 .sliderStyle .MuiSlider-markLabelActive {
@@ -54,8 +54,33 @@ body {
   background-image: url('./../images/mobile-menu-background.png');
   @apply w-full;
   @apply h-66px;
+  @apply bg-cover bg-center;
   @apply flex;
   @apply flex-row;
   @apply justify-center;
-  @apply bg-cover bg-center;
+}
+
+.profile .css-1gsv261 {
+  @apply border-b-2;
+  @apply border-borderGray;
+}
+
+.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  @apply w-6/12;
+  @apply text-base;
+  @apply font-normal;
+  @apply text-borderTabGray;
+  @apply opacity-80;
+  @apply normal-case;
+}
+
+.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  @apply font-bold;
+  @apply text-white;
+  @apply font-ubuntu;
+}
+
+.profile .css-1aquho2-MuiTabs-indicator {
+  @apply bg-white;
+
 }

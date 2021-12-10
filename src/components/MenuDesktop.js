@@ -2,7 +2,7 @@ import React from "react";
 import { images } from "../assets/index";
 import PropTypes from "prop-types";
 
-const DesktopMenu = ({ homeClick, tagClick }) => {
+const MenuDesktop = ({ homeClick, tagClick }) => {
   return (
     <div>
       <div className="flex justify-center py-9">
@@ -20,9 +20,9 @@ const DesktopMenu = ({ homeClick, tagClick }) => {
   );
 };
 
-DesktopMenu.propTypes = {
+MenuDesktop.propTypes = {
   homeClick: PropTypes.func.isRequired,
   tagClick: PropTypes.func.isRequired,
 };
 
-export default DesktopMenu;
+export default MenuDesktop;

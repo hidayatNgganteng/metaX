@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { images } from "../assets/index";
 
-const MobileMenu = ({ homeClick, tagClick }) => {
+const MenuMobile = ({ homeClick, tagClick }) => {
   return (
     <div className="barMenu lg:hidden">
       <button className="px-7" onClick={homeClick}>
@@ -15,9 +15,9 @@ const MobileMenu = ({ homeClick, tagClick }) => {
   );
 };
 
-MobileMenu.propTypes = {
+MenuMobile.propTypes = {
   homeClick: PropTypes.func.isRequired,
   tagClick: PropTypes.func.isRequired,
 };
 
-export default MobileMenu;
+export default MenuMobile;

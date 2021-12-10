@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { images } from "../assets/index";
 import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
-import MobileMenu from "../components/MobileMenu";
-import DesktopMenu from "../components/DesktopMenu";
+import MenuMobile from "../components/MenuMobile";
+import MenuDesktop from "../components/MenuDesktop";
 import ProfileComponent from "../components/ProfileComponent";
+import InputComponent from "../components/InputComponent";
 
 const dataSlider = [
   {
@@ -42,11 +43,20 @@ const sliderDefaultValue = 15;
 const sliderInterval = 3;
 
 function HomeScreen() {
+  const [search, setSearch] = useState("");
+
+  const onSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <div className="lg:flex lg:flex-row">
       {/* left content */}
       <div className="w-79px bg-dark hidden lg:block border border-black-20 box-border">
-        <DesktopMenu />
+        <MenuDesktop
+          homeClick={() => console.log("home")}
+          tagClick={() => console.log("tag")}
+        />
       </div>
 
       {/* center content */}
@@ -55,11 +65,16 @@ function HomeScreen() {
           <img src={images.logo} className="w-35px h-auto lg:hidden" />
           <div className="mt-7">
             <p className="text-2xl text-white">Search</p>
-            <input
+            <InputComponent
+              placeholder="Keyword"
+              value={search}
+              onChange={onSearch}
+            />
+            {/* <input
               type="text"
               placeholder="Keyword"
               className="w-full bg-transparent rounded-md px-18px py-20px border-3 border-white-50 placeholder-white-30 mt-4 text-sm tracking-tighter"
-            />
+            /> */}
             <hr className="bg-white h-px opacity-10 lg:mt-30px hidden lg:block" />
           </div>
 
@@ -87,11 +102,14 @@ function HomeScreen() {
 
         <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-80">
           <div className="px-5 py-7">
-            <ButtonComponent onClickHandle={() => console.log("search")} />
+            <ButtonComponent
+              label="SEARCH"
+              onClickHandle={() => console.log("search")}
+            />
           </div>
 
           {/* mobile menu */}
-          <MobileMenu
+          <MenuMobile
             homeClick={() => console.log("home")}
             tagClick={() => console.log("tag")}
           />

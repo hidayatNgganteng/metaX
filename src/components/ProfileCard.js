@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ButtonOutlinedComponent from "./ButtonOutlinedComponent";
+import ButtonContainedComponent from "./ButtonContainedComponent";
 
 const ProfileCard = ({ image, name, username, isFollowing, onPress }) => {
   return (
@@ -12,21 +14,18 @@ const ProfileCard = ({ image, name, username, isFollowing, onPress }) => {
         </div>
       </div>
       <div>
-        <button
-          onClick={onPress}
-          className={`text-xs  border border-white rounded-20px py-2 px-2.5 font-semibold ${
-            isFollowing ? `bg-white text-bgDark` : `bg-dark text-white`
-          }`}
-        >
-          {isFollowing ? "Following" : "Follow"}
-        </button>
+        {isFollowing ? (
+          <ButtonContainedComponent label="Following" onPress={onPress} />
+        ) : (
+          <ButtonOutlinedComponent label="Follow" onPress={onPress} />
+        )}
       </div>
     </div>
   );
 };
 
 ProfileCard.propTypes = {
-  image: PropTypes.element.isRequired,
+  image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   isFollowing: PropTypes.bool.isRequired,

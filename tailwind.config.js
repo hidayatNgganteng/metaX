@@ -12,6 +12,7 @@ module.exports = {
         borderTabGray: "#929292",
         "white-50": "rgba(255, 255, 255, .5)",
         "white-30": "rgba(255, 255, 255, .3)",
+        "white-05": "rgba(255, 255, 255, .05)",
         "black-20": "rgba(0, 0, 0, .2)",
         yellowCustom: "#FF9B33",
         grayText: "#B2B2B2",
@@ -26,6 +27,8 @@ module.exports = {
         "25px": "25px",
         "40px": "40px",
         "66px": "66px",
+        "43vw": "43vw",
+        "150px": "150px",
       },
       width: {
         "20px": "20px",
@@ -35,6 +38,8 @@ module.exports = {
         "335px": "335px",
         "343px": "343px",
         "375px": "375px",
+        "43vw": "43vw",
+        "150px": "150px",
       },
       fontSize: {
         "14px": "14px",
@@ -53,6 +58,7 @@ module.exports = {
       },
       borderRadius: {
         "20px": "20px",
+        "10px": "10px",
       },
     },
     screens: {

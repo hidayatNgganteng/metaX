@@ -39,7 +39,7 @@ const SearchScreen = () => {
       <MenuDesktop />
 
       <div className="w-full px-5 lg:px-32 py-0 lg:py-14">
-        <button className="flex flex-row items-center fixed bg-bgDark h-20 top-0 left-0 right-0 px-5 lg:hidden">
+        <button className="flex flex-row items-center fixed bg-bgDark w-full h-20 top-0 left-0 right-0 px-5 lg:hidden">
           <img src={images.back_arrow} className="w-3 h-5" />
           <h2 className="text-2xl text-white ml-5">Home Page</h2>
         </button>

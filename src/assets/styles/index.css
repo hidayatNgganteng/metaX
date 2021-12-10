@@ -4,6 +4,7 @@
 
 body {
   @apply bg-bgDark;
+  @apply font-ubuntu;
 }
 
 .css-1aznpnh-MuiSlider-root {

@@ -1,8 +1,9 @@
 import React from "react";
-import Slider from "@mui/material/Slider";
 import { images } from "../assets/index";
+import ButtonComponent from "../components/ButtonComponent";
+import SliderComponent from "../components/SliderComponent";
 
-const marks = [
+const dataSlider = [
   {
     value: 3,
     label: "3",
@@ -32,21 +33,23 @@ const marks = [
     label: "21",
   },
 ];
+const sliderMin = 3;
+const sliderMax = 21;
+const sliderDefaultValue = 15;
+const sliderInterval = 3;
 
 function HomeScreen() {
   return (
     <div>
       {/* top area */}
       <div className="px-5 py-7">
-        <div>
-          <img src={images.logo} className="w-35px h-auto" />
-        </div>
+        <img src={images.logo} className="w-35px h-auto" />
         <div className="mt-7">
           <p className="text-2xl text-white">Search</p>
           <input
             type="text"
             placeholder="Keyword"
-            className="w-full bg-transparent rounded-md px-5 py-5 border-3 border-white-50 placeholder-white-30 mt-4 text-sm tracking-tighter"
+            className="w-full bg-transparent rounded-md px-18px py-20px border-3 border-white-50 placeholder-white-30 mt-4 text-sm tracking-tighter"
           />
         </div>
         <div className="mt-7">
@@ -58,16 +61,13 @@ function HomeScreen() {
             </p>
           </div>
         </div>
-        <div>
-          <Slider
-            aria-label="Custom marks"
-            defaultValue={15}
-            step={3}
-            valueLabelDisplay="off"
-            marks={marks}
-            min={3}
-            max={21}
-            className="sliderStyle"
+        <div className="mt-30px">
+          <SliderComponent
+            data={dataSlider}
+            defaultValue={sliderDefaultValue}
+            interval={sliderInterval}
+            min={sliderMin}
+            max={sliderMax}
           />
         </div>
       </div>
@@ -76,9 +76,7 @@ function HomeScreen() {
       <div className="absolute left-0 right-0 bottom-0">
         <div className="px-5 py-7">
           <hr className="bg-white h-px opacity-10 mb-20" />
-          <button className="bg-white w-full h-40px">
-            <h2 className="text-bgDark text-14px font-bold">SEARCH</h2>
-          </button>
+          <ButtonComponent onClickHandle={() => console.log("search")} />
         </div>
         <div className="barMenu">
           <button className="px-7">

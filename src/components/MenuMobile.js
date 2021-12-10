@@ -1,23 +1,34 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { images } from "../assets/index";
 
-const MenuMobile = ({ homeClick, tagClick }) => {
+const MenuMobile = () => {
+  const ROUTE_PATH = window.location.pathname;
+
   return (
     <div className="barMenu lg:hidden">
-      <button className="px-7" onClick={homeClick}>
-        <img src={images.menu_active} className="h-20px w-20px" />
+      <button className="px-7">
+        <Link to="/">
+          <img
+            src={ROUTE_PATH === "/" ? images.menu_active : images.menu_inactive}
+            className="h-20px w-20px"
+          />
+        </Link>
       </button>
-      <button className="px-7" onClick={tagClick}>
-        <img src={images.menu_inactive} className="h-20px w-20px" />
+      <button className="px-7">
+        <Link to="/search">
+          <img
+            src={
+              ROUTE_PATH === "/search"
+                ? images.menu_active
+                : images.menu_inactive
+            }
+            className="h-20px w-20px"
+          />
+        </Link>
       </button>
     </div>
   );
-};
-
-MenuMobile.propTypes = {
-  homeClick: PropTypes.func.isRequired,
-  tagClick: PropTypes.func.isRequired,
 };
 
 export default MenuMobile;

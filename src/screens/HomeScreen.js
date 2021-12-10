@@ -96,10 +96,7 @@ function HomeScreen() {
             />
           </div>
 
-          <MenuMobile
-            homeClick={() => console.log("home")}
-            tagClick={() => console.log("tag")}
-          />
+          <MenuMobile />
         </div>
       </div>
 

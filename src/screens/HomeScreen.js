@@ -70,11 +70,6 @@ function HomeScreen() {
               value={search}
               onChange={onSearch}
             />
-            {/* <input
-              type="text"
-              placeholder="Keyword"
-              className="w-full bg-transparent rounded-md px-18px py-20px border-3 border-white-50 placeholder-white-30 mt-4 text-sm tracking-tighter"
-            /> */}
             <hr className="bg-white h-px opacity-10 lg:mt-30px hidden lg:block" />
           </div>
 

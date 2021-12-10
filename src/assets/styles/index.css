@@ -60,6 +60,14 @@ body {
   @apply justify-center;
 }
 
+.profile {
+  @apply w-375px;
+  @apply bg-dark;
+  @apply pt-8;
+  @apply hidden;
+  @apply lg:block;
+}
+
 .profile .css-1gsv261 {
   @apply border-b-2;
   @apply border-borderGray;

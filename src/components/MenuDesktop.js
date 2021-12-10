@@ -1,28 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { images } from "../assets/index";
-import PropTypes from "prop-types";
 
-const MenuDesktop = ({ homeClick, tagClick }) => {
+const MenuDesktop = () => {
+  const ROUTE_PATH = window.location.pathname;
+
   return (
-    <div>
+    <div className="w-79px bg-dark hidden lg:block border border-black-20 box-border">
       <div className="flex justify-center py-9">
         <img src={images.logo} className="w-35px h-auto" />
       </div>
       <div>
-        <button className="px-7 py-7" onClick={homeClick}>
-          <img src={images.menu_active} className="h-20px w-20px max-w-none" />
-        </button>
-        <button className="px-7 py-7" onClick={tagClick}>
-          <img src={images.menu_inactive} className="h-20px w-20px" />
-        </button>
+        <Link to="/">
+          <div className="px-7 py-7">
+            <img
+              src={
+                ROUTE_PATH === "/" ? images.menu_active : images.menu_inactive
+              }
+              className="h-20px w-20px max-w-none"
+            />
+          </div>
+        </Link>
+        <Link to="/search">
+          <div className="px-7 py-7">
+            <img
+              src={
+                ROUTE_PATH === "/search"
+                  ? images.menu_active
+                  : images.menu_inactive
+              }
+              className="h-20px w-20px"
+            />
+          </div>
+        </Link>
       </div>
     </div>
   );
-};
-
-MenuDesktop.propTypes = {
-  homeClick: PropTypes.func.isRequired,
-  tagClick: PropTypes.func.isRequired,
 };
 
 export default MenuDesktop;

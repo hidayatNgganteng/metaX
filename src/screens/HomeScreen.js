@@ -4,7 +4,7 @@ import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
 import MenuMobile from "../components/MenuMobile";
 import MenuDesktop from "../components/MenuDesktop";
-import ProfileComponent from "../components/ProfileComponent";
+import Profile from "../components/Profile";
 import InputComponent from "../components/InputComponent";
 
 const dataSlider = [
@@ -51,15 +51,8 @@ function HomeScreen() {
 
   return (
     <div className="lg:flex lg:flex-row">
-      {/* left content */}
-      <div className="w-79px bg-dark hidden lg:block border border-black-20 box-border">
-        <MenuDesktop
-          homeClick={() => console.log("home")}
-          tagClick={() => console.log("tag")}
-        />
-      </div>
+      <MenuDesktop />
 
-      {/* center content */}
       <div className="w-full px-0 lg:px-32 py-0 lg:py-14">
         <div className="px-5 py-7 lg:px-0 lg:py-0">
           <img src={images.logo} className="w-35px h-auto lg:hidden" />
@@ -103,7 +96,6 @@ function HomeScreen() {
             />
           </div>
 
-          {/* mobile menu */}
           <MenuMobile
             homeClick={() => console.log("home")}
             tagClick={() => console.log("tag")}
@@ -111,10 +103,7 @@ function HomeScreen() {
         </div>
       </div>
 
-      {/* right content */}
-      <div className="w-375px bg-dark pt-8 hidden lg:block">
-        <ProfileComponent />
-      </div>
+      <Profile />
     </div>
   );
 }

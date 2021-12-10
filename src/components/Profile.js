@@ -165,7 +165,7 @@ const followingDummy = [
   },
 ];
 
-const ProfileComponent = () => {
+const Profile = () => {
   const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -219,4 +219,4 @@ const ProfileComponent = () => {
   );
 };
 
-export default ProfileComponent;
+export default Profile;

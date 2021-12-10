@@ -14,6 +14,7 @@ module.exports = {
         "white-30": "rgba(255, 255, 255, .3)",
         "black-20": "rgba(0, 0, 0, .2)",
         yellowCustom: "#FF9B33",
+        grayText: "#B2B2B2",
       },
       borderWidth: {
         3: "3px",

@@ -8,4 +8,6 @@ export const images = {
   profile_2: require("./images/profile-2.png").default,
   profile_3: require("./images/profile-3.png").default,
   profile_4: require("./images/profile-4.png").default,
+  back_arrow: require("./images/back-arrow.png").default,
+  dog_animal: require("./images/dog-animal.png").default,
 };

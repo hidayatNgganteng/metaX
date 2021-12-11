@@ -64,24 +64,26 @@ function HomeScreen() {
     <div className="lg:flex lg:flex-row">
       <MenuDesktop />
 
-      <div className="w-full lg:px-32 lg:py-14">
+      <div className="w-full">
         <div>
-          <div className="pl-22px pr-18px">
+          <div className="pl-22px pr-18px lg:pl-127px lg:pr-129px">
             <img
               src={images.logo}
               className="w-36px h-auto lg:hidden mt-30px"
             />
-            <p className="text-24px text-white mt-29px">Search</p>
-            <InputComponent
-              placeholder="Keyword"
-              value={search}
-              onChange={onSearch}
-            />
+            <p className="text-24px text-white mt-29px lg:mt-55px">Search</p>
+            <div className="mt-4 lg:mt-19px">
+              <InputComponent
+                placeholder="Keyword"
+                value={search}
+                onChange={onSearch}
+              />
+            </div>
             <hr className="bg-white h-px opacity-10 lg:mt-30px hidden lg:block" />
-            <h2 className="text-white text-24px mt-28px leading-9">
+            <h2 className="text-white text-24px mt-28px lg:mt-30px leading-9">
               # Of Results Per Page
             </h2>
-            <div className="mt-4 flex flex-row items-end">
+            <div className="mt-4 lg:mt-20px flex flex-row items-end">
               <h1 className="text-5xl font-bold text-white">30</h1>
               <p className="text-16px text-white tracking-normal ml-11px mb-4px">
                 result

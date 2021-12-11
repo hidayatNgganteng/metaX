@@ -60,7 +60,7 @@ body {
 }
 
 .profile {
-  @apply w-544px;
+  @apply w-549px;
   @apply bg-dark;
   @apply pt-8;
   @apply hidden;

@@ -6,7 +6,7 @@ const MenuDesktop = () => {
   const ROUTE_PATH = window.location.pathname;
 
   return (
-    <div className="w-110px bg-dark hidden lg:block border border-black-20 box-border">
+    <div className="w-121px bg-dark hidden lg:block border border-black-20 box-border">
       <img src={images.logo} className="w-35px h-auto mt-38px mx-auto" />
       <div className="mt-40px">
         <Link to="/">
@@ -30,7 +30,7 @@ const MenuDesktop = () => {
               }
               className="h-20px w-20px"
             />
-            <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-4px right-22px"></div>
+            <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-3px right-27px"></div>
           </div>
         </Link>
       </div>

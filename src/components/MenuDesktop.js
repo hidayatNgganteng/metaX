@@ -17,20 +17,25 @@ const MenuDesktop = () => {
               }
               className="h-20px w-20px max-w-none"
             />
-            <p className="text-white text-12px">Home</p>
+            {ROUTE_PATH === "/" && <p className="text-white text-12px">Home</p>}
           </div>
         </Link>
-        <Link to="/search">
+        <Link to="/tags">
           <div className="py-2 flex items-center flex-col mt-9px relative">
             <img
               src={
-                ROUTE_PATH === "/search"
+                ROUTE_PATH === "/tags"
                   ? images.menu_active
                   : images.menu_inactive
               }
               className="h-20px w-20px"
             />
-            <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-3px right-27px"></div>
+            {ROUTE_PATH === "/tags" && (
+              <p className="text-white text-12px">Tags</p>
+            )}
+            {ROUTE_PATH === "/" && (
+              <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-3px right-27px"></div>
+            )}
           </div>
         </Link>
       </div>

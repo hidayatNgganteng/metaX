@@ -16,12 +16,10 @@ const MenuMobile = () => {
         </Link>
       </button>
       <button className="px-7">
-        <Link to="/search">
+        <Link to="/tags">
           <img
             src={
-              ROUTE_PATH === "/search"
-                ? images.menu_active
-                : images.menu_inactive
+              ROUTE_PATH === "/tags" ? images.menu_active : images.menu_inactive
             }
             className="h-20px w-20px"
           />

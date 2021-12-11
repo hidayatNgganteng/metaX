@@ -91,7 +91,7 @@ function HomeScreen() {
             </div>
           </div>
 
-          <div className="mt-7px pl-17px pr-16px relative">
+          <div className="mt-7px pl-17px lg:pl-127px pr-16px lg:pr-129px relative">
             <SliderComponent
               data={dataSlider}
               defaultValue={sliderValue}
@@ -103,7 +103,7 @@ function HomeScreen() {
             <div className="labelSlider">
               {dataSlider.map((item, index) => (
                 <div
-                  className={`text-14px ${
+                  className={`text-14px lg:text-16px ${
                     sliderValue === item.value ? "text-white" : "text-white-50"
                   }`}
                   key={index}
@@ -113,11 +113,11 @@ function HomeScreen() {
               ))}
             </div>
           </div>
-          <hr className="bg-white h-px opacity-20 mt-229px lg:mt-30px ml-22px mr-18px" />
+          <hr className="bg-white h-px opacity-20 mt-229px lg:mt-40px ml-22px lg:ml-127px mr-18px lg:mr-129px" />
         </div>
 
-        <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-80">
-          <div className="mb-24px pl-22px pr-18px">
+        <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-336px">
+          <div className="mb-24px pl-22px lg:pl-127px pr-18px lg:pr-129px">
             <ButtonComponent
               label="SEARCH"
               onClickHandle={() => console.log("search")}

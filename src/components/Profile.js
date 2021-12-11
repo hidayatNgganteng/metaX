@@ -33,7 +33,7 @@ const followerDummy = [
     image: images.profile_4,
     name: "Fullname",
     username: "username",
-    isFollowing: true,
+    isFollowing: false,
   },
   {
     id: 4,
@@ -47,21 +47,21 @@ const followerDummy = [
     image: images.profile_2,
     name: "Fullname",
     username: "username",
-    isFollowing: false,
+    isFollowing: true,
   },
   {
     id: 6,
     image: images.profile_3,
     name: "Fullname",
     username: "username",
-    isFollowing: true,
+    isFollowing: false,
   },
   {
     id: 7,
     image: images.profile_4,
     name: "Fullname",
     username: "username",
-    isFollowing: true,
+    isFollowing: false,
   },
   {
     id: 0,
@@ -82,14 +82,14 @@ const followerDummy = [
     image: images.profile_3,
     name: "Fullname",
     username: "username",
-    isFollowing: true,
+    isFollowing: false,
   },
   {
     id: 3,
     image: images.profile_4,
     name: "Fullname",
     username: "username",
-    isFollowing: true,
+    isFollowing: false,
   },
   {
     id: 4,
@@ -181,14 +181,14 @@ const Profile = () => {
 
   return (
     <Box className="profile">
-      <Box>
+      <Box className="profileTab">
         <Tabs value={tabValue} onChange={handleChange}>
-          <Tab label="Follower" {...allyProps(0)} />
+          <Tab label="Followers" {...allyProps(0)} />
           <Tab label="Following" {...allyProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll">
+        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
           {followerDummy.map((item, index) => (
             <ProfileCard
               key={index}
@@ -202,7 +202,7 @@ const Profile = () => {
         </div>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll">
+        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
           {followingDummy.map((item, index) => (
             <ProfileCard
               key={index}

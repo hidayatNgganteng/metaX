@@ -64,9 +64,12 @@ body {
 .profile {
   @apply w-549px;
   @apply bg-dark;
-  @apply pt-8;
   @apply hidden;
   @apply lg:block;
+}
+
+.profileTab {
+  @apply mt-21px;
 }
 
 .profile .css-1gsv261 {
@@ -76,17 +79,24 @@ body {
 
 .profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
   @apply w-6/12;
-  @apply text-base;
+  @apply text-16px;
   @apply font-normal;
   @apply text-borderTabGray;
   @apply opacity-80;
   @apply normal-case;
+  min-height: 44px;
+}
+
+.profile .css-1ujnqem-MuiTabs-root {
+  min-height: 44px;
 }
 
 .profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  @apply text-16px;
   @apply font-bold;
   @apply text-white;
   @apply font-ubuntu;
+  min-height: 44px;
 }
 
 .profile .css-1aquho2-MuiTabs-indicator {
@@ -113,7 +123,10 @@ body {
   @apply flex;
   @apply flex-row;
   @apply justify-between;
-  bottom: -9px;
-  left: 16px;
-  right: 15px;
+  @apply bottom-min-9px;
+  @apply lg:bottom-min-12px;
+  @apply left-16px;
+  @apply right-15px;
+  @apply lg:left-127px;
+  @apply lg:right-120px;
 }

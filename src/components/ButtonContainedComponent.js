@@ -5,7 +5,7 @@ const ButtonContainedComponent = ({ label, onPress }) => {
   return (
     <button
       onClick={onPress}
-      className="text-xs  border border-white rounded-20px py-2 px-2.5 font-semibold bg-white text-bgDark hover:bg-bgDark hover:text-white"
+      className="text-xs  border border-white rounded-20px py-2 px-2.5 font-semibold bg-white text-bgDark hover:bg-bgDark hover:text-white mt-min-4px"
     >
       {label}
     </button>

@@ -5,7 +5,7 @@ const ButtonOutlinedComponent = ({ label, onPress }) => {
   return (
     <button
       onClick={onPress}
-      className="text-xs  border border-white rounded-20px py-2 px-2.5 font-semibold bg-bgDark text-white hover:bg-white hover:text-bgDark"
+      className="text-xs border border-white rounded-20px py-2 px-2.5 font-semibold bg-bgDark text-white hover:bg-white hover:text-bgDark mt-min-4px"
     >
       {label}
     </button>

@@ -8,7 +8,7 @@ const InputComponent = ({ placeholder, value, onChange }) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className="w-full bg-transparent rounded-md px-18px py-20px border-3 border-white-50 placeholder-white-30 mt-4 text-sm tracking-tighter text-white focus:border-yellowCustom focus:outline-none"
+      className="w-full bg-transparent rounded-md px-15px py-17px border-3 border-white-50 placeholder-white-30 mt-4 text-sm text-white focus:border-yellowCustom focus:outline-none tracking-normal"
     />
   );
 };

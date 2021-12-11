@@ -7,19 +7,18 @@ body {
   @apply font-ubuntu;
 }
 
-.css-1aznpnh-MuiSlider-root {
+.css-187mznn-MuiSlider-root {
   height: 8px !important;
   color: transparent !important;
 }
 
 .sliderStyle .MuiSlider-track {
-  @apply from-gradientColorStart;
-  @apply to-gradientColorStop;
-  @apply bg-gradient-to-r;
+  @apply bg-transparent
 }
 
 .sliderStyle .MuiSlider-rail {
-  @apply text-gray-100
+  @apply text-gray-100;
+  @apply bg-transparent
 }
 
 .sliderStyle .css-eg0mwd-MuiSlider-thumb {
@@ -61,7 +60,7 @@ body {
 }
 
 .profile {
-  @apply w-375px;
+  @apply w-544px;
   @apply bg-dark;
   @apply pt-8;
   @apply hidden;
@@ -90,5 +89,29 @@ body {
 
 .profile .css-1aquho2-MuiTabs-indicator {
   @apply bg-white;
+}
 
+.trackSlider {
+  @apply w-full;
+  @apply h-8px;
+  @apply from-gradientColorStart;
+  @apply to-gradientColorStop;
+  @apply bg-gradient-to-r;
+  @apply absolute;
+  @apply rounded-12px;
+  top: 20px;
+  @apply left-0;
+}
+
+.labelSlider {
+  @apply absolute;
+  @apply bottom-0;
+  @apply left-0;
+  @apply right-0;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-between;
+  bottom: -9px;
+  left: 9px;
+  right: 6px;
 }

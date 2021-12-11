@@ -6,23 +6,22 @@ const MenuDesktop = () => {
   const ROUTE_PATH = window.location.pathname;
 
   return (
-    <div className="w-79px bg-dark hidden lg:block border border-black-20 box-border">
-      <div className="flex justify-center py-9">
-        <img src={images.logo} className="w-35px h-auto" />
-      </div>
-      <div>
+    <div className="w-110px bg-dark hidden lg:block border border-black-20 box-border">
+      <img src={images.logo} className="w-35px h-auto mt-38px mx-auto" />
+      <div className="mt-40px">
         <Link to="/">
-          <div className="px-7 py-7">
+          <div className="py-2 flex items-center flex-col">
             <img
               src={
                 ROUTE_PATH === "/" ? images.menu_active : images.menu_inactive
               }
               className="h-20px w-20px max-w-none"
             />
+            <p className="text-white text-12px">Home</p>
           </div>
         </Link>
         <Link to="/search">
-          <div className="px-7 py-7">
+          <div className="py-2 flex items-center flex-col mt-9px relative">
             <img
               src={
                 ROUTE_PATH === "/search"
@@ -31,6 +30,7 @@ const MenuDesktop = () => {
               }
               className="h-20px w-20px"
             />
+            <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-4px right-22px"></div>
           </div>
         </Link>
       </div>

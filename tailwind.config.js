@@ -58,6 +58,9 @@ module.exports = {
         "544px": "544px",
         "549px": "549px",
         "605px": "605px",
+        "82px": "82px",
+        contentWidth: "calc(100% - 82px - 375px)",
+        tagsContentWidth: "calc(100% - 82px)",
       },
       fontSize: {
         "12px": "12px",
@@ -67,14 +70,17 @@ module.exports = {
         "18px": "18px",
         "24px": "24px",
         "23px": "23px",
+        "30px": "30px",
       },
       margin: {
         "min-1px": "-1px",
         "2px": "2px",
         "min-4px": "-4px",
+        "min-2px": "-2px",
         "3px": "3px",
         "4px": "4px",
         "7px": "7px",
+        "8px": "8px",
         "9px": "9px",
         "11px": "11px",
         "12px": "12px",
@@ -102,6 +108,9 @@ module.exports = {
         "127px": "127px",
         "336px": "336px",
         "min-6px": "-6px",
+        "255px": "255px",
+        "86px": "86px",
+        "34px": "34px",
       },
       padding: {
         "4px": "4px",
@@ -124,6 +133,7 @@ module.exports = {
         "129px": "129px",
         "134px": "134px",
         "131px": "131px",
+        "231px": "231px",
       },
       fontFamily: {
         ubuntu: ["Ubuntu", "sans-serif"],
@@ -138,6 +148,7 @@ module.exports = {
       },
       letterSpacing: {
         "0.6px": "0.6px",
+        "0.5px": "0.5px",
       },
       inset: {
         "22px": "22px",

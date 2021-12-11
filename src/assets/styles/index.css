@@ -62,7 +62,7 @@ body {
 }
 
 .profile {
-  @apply w-549px;
+  @apply w-375px;
   @apply bg-dark;
   @apply hidden;
   @apply lg:block;

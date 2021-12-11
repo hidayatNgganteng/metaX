@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MenuDesktop from "../components/MenuDesktop";
-import Profile from "../components/Profile";
 import { images } from "../assets/index";
 import TagsCard from "../components/TagsCard";
 
@@ -36,14 +35,159 @@ const tagsDummy = [
     tag2: "Passage Specific",
     label: "50 Questions",
   },
+  {
+    tag1: "Very lo...",
+    tag2: "Very long taaaaaaa...",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
+  {
+    tag1: "Tag",
+    tag2: "Tag",
+    label: "50 Questions",
+  },
 ];
 
 const TagsScreen = () => {
   return (
-    <div className="lg:flex lg:flex-row">
+    <div className="lg:flex lg:flex-row lg:justify-between">
       <MenuDesktop />
 
-      <div className="w-full">
+      <div className="lg:w-tagsContentWidth">
         <div className="fixed bg-bgDark w-full h-69px top-0 left-0 right-0 px-22px lg:hidden">
           <Link to="/">
             <div className="flex flex-row items-center h-full">
@@ -52,10 +196,10 @@ const TagsScreen = () => {
             </div>
           </Link>
         </div>
-        <button className="mt-94px ml-20px lg:flex lg:flex-row lg:items-center pointer-events-none lg:pointer-events-auto">
-          <h3 className="text-2xl text-white ml-0 lg:ml-8">Tags</h3>
-        </button>
-        <div className="flex flex-row flex-wrap justify-between lg:justify-start px-25px">
+        <h3 className="mt-94px ml-20px text-2xl text-white lg:ml-255px lg:mt-86px lg:text-30px font-bold">
+          Tags
+        </h3>
+        <div className="flex flex-row flex-wrap justify-between lg:justify-start px-25px lg:px-231px lg:mt-min-2px">
           {tagsDummy.map((item, index) => (
             <TagsCard
               key={index}
@@ -66,8 +210,6 @@ const TagsScreen = () => {
           ))}
         </div>
       </div>
-
-      <Profile />
     </div>
   );
 };

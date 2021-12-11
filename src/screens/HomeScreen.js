@@ -61,10 +61,10 @@ function HomeScreen() {
   };
 
   return (
-    <div className="lg:flex lg:flex-row">
+    <div className="lg:flex lg:flex-row lg:justify-between">
       <MenuDesktop />
 
-      <div className="w-full">
+      <div className="lg:w-contentWidth">
         <div>
           <div className="pl-22px pr-18px lg:pl-127px lg:pr-129px">
             <img

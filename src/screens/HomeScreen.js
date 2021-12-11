@@ -91,24 +91,26 @@ function HomeScreen() {
             </div>
           </div>
 
-          <div className="mt-7px pl-18px pr-16px">
-            <div className="relative pl-12px pr-12px">
-              <div className="trackSlider"></div>
-              <SliderComponent
-                data={dataSlider}
-                defaultValue={sliderValue}
-                interval={sliderInterval}
-                min={sliderMin}
-                max={sliderMax}
-                onChangeHandle={onSlide}
-              />
-              <div className="labelSlider">
-                {dataSlider.map((item, index) => (
-                  <div className="text-white-50 text-14px" key={index}>
-                    {item.labelCustom}
-                  </div>
-                ))}
-              </div>
+          <div className="mt-7px pl-17px pr-16px relative">
+            <SliderComponent
+              data={dataSlider}
+              defaultValue={sliderValue}
+              interval={sliderInterval}
+              min={sliderMin}
+              max={sliderMax}
+              onChangeHandle={onSlide}
+            />
+            <div className="labelSlider">
+              {dataSlider.map((item, index) => (
+                <div
+                  className={`text-14px ${
+                    sliderValue === item.value ? "text-white" : "text-white-50"
+                  }`}
+                  key={index}
+                >
+                  {item.labelCustom}
+                </div>
+              ))}
             </div>
           </div>
           <hr className="bg-white h-px opacity-20 mt-229px lg:mt-30px ml-22px mr-18px" />

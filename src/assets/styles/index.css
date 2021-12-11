@@ -13,12 +13,14 @@ body {
 }
 
 .sliderStyle .MuiSlider-track {
-  @apply bg-transparent
+  @apply from-gradientColorStart;
+  @apply to-gradientColorStop;
+  @apply bg-gradient-to-r;
 }
 
 .sliderStyle .MuiSlider-rail {
   @apply text-gray-100;
-  @apply bg-transparent
+  @apply bg-white-30;
 }
 
 .sliderStyle .css-eg0mwd-MuiSlider-thumb {
@@ -112,6 +114,6 @@ body {
   @apply flex-row;
   @apply justify-between;
   bottom: -9px;
-  left: 9px;
-  right: 6px;
+  left: 16px;
+  right: 15px;
 }

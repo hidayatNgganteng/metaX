@@ -86,7 +86,7 @@ const HomeScreen = () => {
               # Of Results Per Page
             </h2>
             <div className="mt-4 lg:mt-20px flex flex-row items-end">
-              <h1 className="text-5xl font-bold text-white">30</h1>
+              <h1 className="text-5xl font-bold text-white">{pageSize}</h1>
               <p className="text-16px text-white tracking-normal ml-11px mb-4px">
                 result
               </p>

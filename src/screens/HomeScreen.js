@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { images } from "../assets/index";
+// component
 import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
 import MenuMobile from "../components/MenuMobile";
@@ -49,16 +50,16 @@ const sliderMin = 3;
 const sliderMax = 21;
 const sliderInterval = 3;
 
-function HomeScreen() {
-  const [search, setSearch] = useState("");
-  const [sliderValue, setSliderValue] = useState(15);
+const HomeScreen = () => {
+  const [query, setQuery] = useState("");
+  const [pageSize, setPageSize] = useState(15);
 
   const onSearch = (event) => {
-    setSearch(event.target.value);
+    setQuery(event.target.value);
   };
 
   const onSlide = (event, newValue) => {
-    setSliderValue(newValue);
+    setPageSize(newValue);
   };
 
   return (
@@ -76,7 +77,7 @@ function HomeScreen() {
             <div className="mt-4 lg:mt-19px">
               <InputComponent
                 placeholder="Keyword"
-                value={search}
+                value={query}
                 onChange={onSearch}
               />
             </div>
@@ -85,7 +86,7 @@ function HomeScreen() {
               # Of Results Per Page
             </h2>
             <div className="mt-4 lg:mt-20px flex flex-row items-end">
-              <h1 className="text-5xl font-bold text-white">30</h1>
+              <h1 className="text-5xl font-bold text-white">{pageSize}</h1>
               <p className="text-16px text-white tracking-normal ml-11px mb-4px">
                 result
               </p>
@@ -95,7 +96,7 @@ function HomeScreen() {
           <div className="mt-7px pl-17px lg:pl-127px pr-16px lg:pr-129px relative">
             <SliderComponent
               data={dataSlider}
-              defaultValue={sliderValue}
+              defaultValue={pageSize}
               interval={sliderInterval}
               min={sliderMin}
               max={sliderMax}
@@ -105,7 +106,7 @@ function HomeScreen() {
               {dataSlider.map((item, index) => (
                 <div
                   className={`text-14px lg:text-16px ${
-                    sliderValue === item.value ? "text-white" : "text-white-50"
+                    pageSize === item.value ? "text-white" : "text-white-50"
                   }`}
                   key={index}
                 >
@@ -119,7 +120,7 @@ function HomeScreen() {
 
         <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-336px">
           <div className="mb-24px pl-22px lg:pl-127px pr-18px lg:pr-129px">
-            <Link to="/search">
+            <Link to={`/search/${query === "" ? null : query}/${pageSize}`}>
               <ButtonComponent label="SEARCH" />
             </Link>
           </div>
@@ -131,6 +132,6 @@ function HomeScreen() {
       <Profile />
     </div>
   );
-}
+};
 
 export default HomeScreen;

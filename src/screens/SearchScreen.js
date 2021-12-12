@@ -1,60 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroller";
+import { connect } from "react-redux";
+import { images } from "../assets/index";
+import { searchData, removeSearchResult } from "../redux/app/actions";
+// component
 import MenuDesktop from "../components/MenuDesktop";
 import Profile from "../components/Profile";
 import SearchCard from "../components/SearchCard";
 import ButtonComponent from "../components/ButtonComponent";
-import { images } from "../assets/index";
+import SkeletonSearch from "../components/SkeletonSearch";
 
-const dummySearch = [
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-];
+const SearchScreen = (props) => {
+  const params = useParams();
+  const { app, searchData, removeSearchResult } = props;
+  const [hasMoreResult, setHasMoreResult] = useState(true);
+  const [currPage, setCurrPage] = useState(1);
+  const [resultErr, setResultErr] = useState("");
+  const [loader, setLoader] = useState(false);
 
-const SearchScreen = () => {
+  useEffect(() => {
+    removeSearchResult();
+    handleSearchData(1);
+  }, []);
+
+  const handleSearchData = (page) => {
+    setLoader(true);
+    searchData({
+      page,
+      pageSize: params.pageSize,
+      query: params.query,
+    })
+      .then((res) => {
+        setLoader(false);
+        setCurrPage(res.currPage);
+        setHasMoreResult(res.hasMoreItems);
+      })
+      .catch((err) => {
+        setLoader(false);
+        setResultErr(err.message);
+      });
+  };
+
   return (
     <div className="lg:flex lg:flex-row lg:justify-between">
       <MenuDesktop />
 
-      <div className="lg:w-contentWidth">
+      <div className="lg:w-contentWidth lg:h-screen lg:overflow-scroll">
         <div className="fixed bg-bgDark w-full h-71px top-0 left-0 right-0 px-26px lg:hidden">
           <Link to="/">
             <div className="flex flex-row items-center h-full">
@@ -76,20 +69,64 @@ const SearchScreen = () => {
             </div>
           </Link>
         </button>
-        <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
-          {dummySearch.map((item, index) => (
-            <SearchCard
-              key={index}
-              image={item.image}
-              title={item.title}
-              username={item.username}
-            />
-          ))}
+        {/* items for desktop */}
+        <div className="hidden lg:block">
+          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+            {app.searchResult.map((item, index) => (
+              <SearchCard
+                key={index}
+                image={images.dog_animal}
+                title={item.name}
+                username={item.username}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
-          <ButtonComponent label="MORE" />
+        <div className="block lg:hidden">
+          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+            <InfiniteScroll
+              threshold={50}
+              pageStart={currPage}
+              loadMore={handleSearchData}
+              hasMore={hasMoreResult}
+            >
+              {app.searchResult.map((item, index) => (
+                <SearchCard
+                  key={index}
+                  image={images.dog_animal}
+                  title={item.name}
+                  username={item.username}
+                />
+              ))}
+            </InfiniteScroll>
+          </div>
         </div>
+
+        {/* loader */}
+        {loader && <SkeletonSearch />}
+
+        {/* empty data */}
+        {!app.searchResult.length && !loader && (
+          <div className="lg:px-135px lg:mt-20px">
+            <h4 className="text-white">Empty Data</h4>
+          </div>
+        )}
+
+        {/* error fetch */}
+        {resultErr !== "" && (
+          <div className="lg:px-135px lg:mt-20px">
+            <h4 className="text-white">{resultErr}</h4>
+          </div>
+        )}
+
+        {hasMoreResult && (
+          <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
+            <button onClick={() => handleSearchData(currPage + 1)}>
+              <ButtonComponent label="MORE" />
+            </button>
+          </div>
+        )}
       </div>
 
       <Profile />
@@ -97,4 +134,13 @@ const SearchScreen = () => {
   );
 };
 
-export default SearchScreen;
+const mapStateToProps = ({ app }) => ({
+  app,
+});
+
+const mapDispatchToProps = {
+  searchData,
+  removeSearchResult,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen);

@@ -64,6 +64,9 @@ module.exports = {
         "262px": "262px",
         contentWidth: "calc(100% - 82px - 375px)",
         tagsContentWidth: "calc(100% - 82px)",
+        "30percent": "30%",
+        "18percent": "18%",
+        "48percent": "48%",
       },
       fontSize: {
         "12px": "12px",
@@ -140,6 +143,7 @@ module.exports = {
         "129px": "129px",
         "134px": "134px",
         "131px": "131px",
+        "135px": "135px",
         "231px": "231px",
         "87px": "87px",
         "105px": "105px",

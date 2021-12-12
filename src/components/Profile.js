@@ -1,172 +1,49 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import InfiniteScroll from "react-infinite-scroller";
+import { getFollowers, getFollowing } from "../redux/app/actions";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { images } from "../assets/index";
+// component
 import TabPanel from "../components/TabPanel";
 import ProfileCard from "../components/ProfileCard";
-import { images } from "../assets/index";
+import SkeletonProfile from "../components/SkeletonProfile";
 
-const followerDummy = [
-  {
-    id: 0,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 1,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 2,
-    image: images.profile_3,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 3,
-    image: images.profile_4,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 4,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 5,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 6,
-    image: images.profile_3,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 7,
-    image: images.profile_4,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 0,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 1,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 2,
-    image: images.profile_3,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 3,
-    image: images.profile_4,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 4,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 5,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: false,
-  },
-  {
-    id: 6,
-    image: images.profile_3,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 7,
-    image: images.profile_4,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-];
-const followingDummy = [
-  {
-    id: 0,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 1,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 2,
-    image: images.profile_3,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 3,
-    image: images.profile_4,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 4,
-    image: images.profile_1,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-  {
-    id: 5,
-    image: images.profile_2,
-    name: "Fullname",
-    username: "username",
-    isFollowing: true,
-  },
-];
-
-const Profile = () => {
+const Profile = (props) => {
+  const { getFollowers, getFollowing, app } = props;
   const [tabValue, setTabValue] = useState(0);
+  const [followersErr, setFollowersErr] = useState("");
+  const [hasMoreFollowers, setHasMoreFollowers] = useState(true);
+  const [followingErr, setFollowingErr] = useState("");
+  const [hasMoreFollowing, setHasMoreFollowing] = useState(true);
+
+  useEffect(() => {
+    handleGetFollowers(1);
+    handleGetFollowing(1);
+  }, []);
+
+  const handleGetFollowers = (page) => {
+    getFollowers({ page })
+      .then((res) => {
+        setHasMoreFollowers(res.hasMoreItems);
+      })
+      .catch((err) => {
+        setFollowersErr(err.message);
+      });
+  };
+
+  const handleGetFollowing = (page) => {
+    getFollowing({ page })
+      .then((res) => {
+        setHasMoreFollowing(res.hasMoreItems);
+      })
+      .catch((err) => {
+        setFollowingErr(err.message);
+      });
+  };
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -180,43 +57,79 @@ const Profile = () => {
   };
 
   return (
-    <Box className="profile">
+    <Box className="profile h-screen overflow-scroll">
       <Box className="profileTab">
         <Tabs value={tabValue} onChange={handleChange}>
           <Tab label="Followers" {...allyProps(0)} />
           <Tab label="Following" {...allyProps(1)} />
         </Tabs>
       </Box>
+
       <TabPanel value={tabValue} index={0}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
-          {followerDummy.map((item, index) => (
-            <ProfileCard
-              key={index}
-              image={item.image}
-              name={item.name}
-              username={item.username}
-              isFollowing={item.isFollowing}
-              onPress={() => console.log(item.id)}
-            />
-          ))}
+        <div className="px-4 py-3.5 h-full mt-2px">
+          <InfiniteScroll
+            threshold={50}
+            pageStart={1}
+            loadMore={handleGetFollowers}
+            hasMore={hasMoreFollowers}
+            loader={<SkeletonProfile key={0} />}
+            useWindow={false}
+          >
+            {app.followers.map((item, index) => (
+              <ProfileCard
+                key={index}
+                image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+                name={item.name}
+                username={item.username}
+                isFollowing={item.isFollowing}
+                onPress={() => null}
+              />
+            ))}
+          </InfiniteScroll>
+
+          {followersErr !== "" && (
+            <div className="text-white">{followersErr}</div>
+          )}
         </div>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
-          {followingDummy.map((item, index) => (
-            <ProfileCard
-              key={index}
-              image={item.image}
-              name={item.name}
-              username={item.username}
-              isFollowing={item.isFollowing}
-              onPress={() => console.log(item.id)}
-            />
-          ))}
+        <div className="px-4 py-3.5 h-full mt-2px">
+          <InfiniteScroll
+            threshold={50}
+            pageStart={1}
+            loadMore={handleGetFollowing}
+            hasMore={hasMoreFollowing}
+            loader={<SkeletonProfile key={1} />}
+            useWindow={false}
+          >
+            {app.following.map((item, index) => (
+              <ProfileCard
+                key={index}
+                image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+                name={item.name}
+                username={item.username}
+                isFollowing={item.isFollowing}
+                onPress={() => null}
+              />
+            ))}
+          </InfiniteScroll>
+
+          {followingErr !== "" && (
+            <div className="text-white">{followingErr}</div>
+          )}
         </div>
       </TabPanel>
     </Box>
   );
 };
 
-export default Profile;
+const mapStateToProps = ({ app }) => ({
+  app,
+});
+
+const mapDispatchToProps = {
+  getFollowers,
+  getFollowing,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

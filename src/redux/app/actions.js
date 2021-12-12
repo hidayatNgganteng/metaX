@@ -15,7 +15,9 @@ export const getFollowers = ({ page }) => {
         .get(endpoint)
         .then((res) => {
           dispatch(setFollowers(res.data.data));
-          resolve();
+          resolve({
+            hasMoreItems: res.data.data.length ? true : false,
+          });
         })
         .catch((err) => {
           reject(err);

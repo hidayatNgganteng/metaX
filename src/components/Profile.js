@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import InfiniteScroll from "react-infinite-scroller";
 import { getFollowers } from "../redux/app/actions";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -58,14 +59,21 @@ const Profile = (props) => {
   const { getFollowers, app } = props;
   const [tabValue, setTabValue] = useState(0);
   const [followersErr, setFollowersErr] = useState("");
+  const [hasMoreFollowers, setHasMoreFollowers] = useState(true);
 
   useEffect(() => {
-    getFollowers({
-      page: 1,
-    }).catch((err) => {
-      setFollowersErr(err.message);
-    });
+    handleGetFollowers(1);
   }, []);
+
+  const handleGetFollowers = (page) => {
+    getFollowers({ page })
+      .then((res) => {
+        setHasMoreFollowers(res.hasMoreItems);
+      })
+      .catch((err) => {
+        setFollowersErr(err.message);
+      });
+  };
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -79,7 +87,7 @@ const Profile = (props) => {
   };
 
   return (
-    <Box className="profile">
+    <Box className="profile h-screen overflow-scroll">
       <Box className="profileTab">
         <Tabs value={tabValue} onChange={handleChange}>
           <Tab label="Followers" {...allyProps(0)} />
@@ -87,24 +95,37 @@ const Profile = (props) => {
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
-          {app.followers.map((item, index) => (
-            <ProfileCard
-              key={index}
-              image={index % 2 === 0 ? images.profile_1 : images.profile_2}
-              name={item.name}
-              username={item.username}
-              isFollowing={item.isFollowing}
-              onPress={() => null}
-            />
-          ))}
+        <div className="px-4 py-3.5 h-full mt-2px">
+          <InfiniteScroll
+            threshold={50}
+            pageStart={1}
+            loadMore={handleGetFollowers}
+            hasMore={hasMoreFollowers}
+            loader={
+              <div className="text-center" key={0}>
+                loading data ...
+              </div>
+            }
+            useWindow={false}
+          >
+            {app.followers.map((item, index) => (
+              <ProfileCard
+                key={index}
+                image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+                name={item.name}
+                username={item.username}
+                isFollowing={item.isFollowing}
+                onPress={() => null}
+              />
+            ))}
+          </InfiniteScroll>
           {followersErr !== "" && (
             <div className="text-white">{followersErr}</div>
           )}
         </div>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <div className="px-4 py-3.5 h-screen overflow-scroll mt-2px">
+        <div className="px-4 py-3.5 h-full mt-2px">
           {followingDummy.map((item, index) => (
             <ProfileCard
               key={index}

@@ -13,11 +13,16 @@ const MenuDesktop = () => {
           <div className="py-2 flex items-center flex-col">
             <img
               src={
-                ROUTE_PATH === "/" ? images.menu_active : images.menu_inactive
+                ROUTE_PATH === "/" || ROUTE_PATH === "/search"
+                  ? images.menu_active
+                  : images.menu_inactive
               }
               className="h-20px w-20px max-w-none"
             />
-            {ROUTE_PATH === "/" && <p className="text-white text-12px">Home</p>}
+            {ROUTE_PATH === "/" ||
+              (ROUTE_PATH === "/search" && (
+                <p className="text-white text-12px">Home</p>
+              ))}
           </div>
         </Link>
         <Link to="/tags">
@@ -33,7 +38,7 @@ const MenuDesktop = () => {
             {ROUTE_PATH === "/tags" && (
               <p className="text-white text-12px">Tags</p>
             )}
-            {ROUTE_PATH === "/" && (
+            {(ROUTE_PATH === "/" || ROUTE_PATH === "/search") && (
               <div className="w-5px h-5px bg-blueCustom rounded-full absolute top-3px right-27px"></div>
             )}
           </div>

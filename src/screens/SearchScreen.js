@@ -15,6 +15,7 @@ const SearchScreen = (props) => {
   const params = useParams();
   const { app, searchData, removeSearchResult } = props;
   const [hasMoreResult, setHasMoreResult] = useState(true);
+  const [nextPage, setNextPage] = useState(1);
   const [resultErr, setResultErr] = useState("");
   const [loader, setLoader] = useState(false);
 
@@ -32,6 +33,7 @@ const SearchScreen = (props) => {
     })
       .then((res) => {
         setLoader(false);
+        setNextPage(res.nextPage);
         setHasMoreResult(res.hasMoreItems);
       })
       .catch((err) => {
@@ -44,7 +46,7 @@ const SearchScreen = (props) => {
     <div className="lg:flex lg:flex-row lg:justify-between">
       <MenuDesktop />
 
-      <div className="lg:w-contentWidth">
+      <div className="lg:w-contentWidth lg:h-screen lg:overflow-scroll">
         <div className="fixed bg-bgDark w-full h-71px top-0 left-0 right-0 px-26px lg:hidden">
           <Link to="/">
             <div className="flex flex-row items-center h-full">
@@ -96,7 +98,9 @@ const SearchScreen = (props) => {
 
         {hasMoreResult && (
           <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
-            <ButtonComponent label="MORE" />
+            <button onClick={() => handleSearchData(nextPage)}>
+              <ButtonComponent label="MORE" />
+            </button>
           </div>
         )}
       </div>

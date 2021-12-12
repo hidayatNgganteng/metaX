@@ -77,6 +77,7 @@ export const searchData = ({ page, pageSize, query }) => {
           dispatch(setSearchResult(res.data.data));
           resolve({
             hasMoreItems: res.data.data.length ? true : false,
+            nextPage: res.data.page + 1,
           });
         })
         .catch((err) => {

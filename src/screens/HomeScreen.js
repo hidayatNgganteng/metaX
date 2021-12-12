@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { images } from "../assets/index";
 import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
@@ -49,7 +50,7 @@ const sliderMin = 3;
 const sliderMax = 21;
 const sliderInterval = 3;
 
-function HomeScreen() {
+const HomeScreen = () => {
   const [search, setSearch] = useState("");
   const [sliderValue, setSliderValue] = useState(15);
 
@@ -131,6 +132,10 @@ function HomeScreen() {
       <Profile />
     </div>
   );
-}
+};
 
-export default HomeScreen;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

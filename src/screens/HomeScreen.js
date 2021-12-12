@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { images } from "../assets/index";
 import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
@@ -118,10 +119,9 @@ function HomeScreen() {
 
         <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-336px">
           <div className="mb-24px pl-22px lg:pl-127px pr-18px lg:pr-129px">
-            <ButtonComponent
-              label="SEARCH"
-              onClickHandle={() => console.log("search")}
-            />
+            <Link to="/search">
+              <ButtonComponent label="SEARCH" />
+            </Link>
           </div>
 
           <MenuMobile />

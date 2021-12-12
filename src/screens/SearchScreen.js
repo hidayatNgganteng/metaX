@@ -63,14 +63,18 @@ const SearchScreen = () => {
             </div>
           </Link>
         </div>
-        <button className="mt-20 lg:mt-86px pl-21px lg:pl-87px pt-13px lg:flex lg:flex-row lg:items-center pointer-events-none lg:pointer-events-auto">
-          <img
-            src={images.back_arrow}
-            className="w-16px h-auto hidden lg:block"
-          />
-          <h3 className="text-2xl text-white ml-0 lg:ml-8 lg:text-31px">
-            Results
-          </h3>
+        <button className="mt-20 lg:mt-86px pl-21px lg:pl-87px pt-13px pointer-events-none lg:pointer-events-auto">
+          <Link to="/">
+            <div className="lg:flex lg:flex-row lg:items-center">
+              <img
+                src={images.back_arrow}
+                className="w-16px h-auto hidden lg:block"
+              />
+              <h3 className="text-2xl text-white ml-0 lg:ml-8 lg:text-31px">
+                Results
+              </h3>
+            </div>
+          </Link>
         </button>
         <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
           {dummySearch.map((item, index) => (
@@ -84,10 +88,7 @@ const SearchScreen = () => {
         </div>
 
         <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
-          <ButtonComponent
-            label="MORE"
-            onClickHandle={() => console.log("search")}
-          />
+          <ButtonComponent label="MORE" />
         </div>
       </div>
 

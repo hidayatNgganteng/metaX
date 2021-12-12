@@ -3,5 +3,130 @@
 @tailwind utilities;
 
 body {
-  background-color: #121212;
+  @apply bg-bgDark;
+  @apply font-ubuntu;
+}
+
+.css-187mznn-MuiSlider-root {
+  height: 8px !important;
+  color: transparent !important;
+}
+
+.sliderStyle .MuiSlider-track {
+  @apply from-gradientColorStart;
+  @apply to-gradientColorStop;
+  @apply bg-gradient-to-r;
+}
+
+.sliderStyle .MuiSlider-rail {
+  @apply text-gray-100;
+  @apply bg-white-30;
+}
+
+.sliderStyle .css-eg0mwd-MuiSlider-thumb {
+  @apply border-6;
+  @apply border-gradientColorStop;
+  @apply h-25px;
+  @apply w-25px;
+  @apply bg-dark;
+}
+
+.sliderStyle .css-1eoe787-MuiSlider-markLabel {
+  @apply text-white;
+  @apply text-sm;
+  @apply opacity-25;
+}
+
+.sliderStyle .css-yafthl-MuiSlider-markLabel {
+  @apply text-white;
+  @apply text-sm;
+  @apply opacity-25;
+}
+
+.sliderStyle .css-6cwnna-MuiSlider-mark {
+  @apply bg-transparent;
+}
+
+.sliderStyle .MuiSlider-markLabelActive {
+  @apply opacity-100;
+}
+
+.barMenu {
+  background-image: url('./../images/mobile-menu-background.png');
+  @apply w-full;
+  @apply h-66px;
+  @apply bg-cover bg-center;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-center;
+}
+
+.profile {
+  @apply w-375px;
+  @apply bg-dark;
+  @apply hidden;
+  @apply lg:block;
+}
+
+.profileTab {
+  @apply mt-21px;
+}
+
+.profile .css-1gsv261 {
+  @apply border-b-2;
+  @apply border-borderGray;
+}
+
+.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  @apply w-6/12;
+  @apply text-16px;
+  @apply font-normal;
+  @apply text-borderTabGray;
+  @apply opacity-80;
+  @apply normal-case;
+  min-height: 44px;
+}
+
+.profile .css-1ujnqem-MuiTabs-root {
+  min-height: 44px;
+}
+
+.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  @apply text-16px;
+  @apply font-bold;
+  @apply text-white;
+  @apply font-ubuntu;
+  min-height: 44px;
+}
+
+.profile .css-1aquho2-MuiTabs-indicator {
+  @apply bg-white;
+}
+
+.trackSlider {
+  @apply w-full;
+  @apply h-8px;
+  @apply from-gradientColorStart;
+  @apply to-gradientColorStop;
+  @apply bg-gradient-to-r;
+  @apply absolute;
+  @apply rounded-12px;
+  top: 20px;
+  @apply left-0;
+}
+
+.labelSlider {
+  @apply absolute;
+  @apply bottom-0;
+  @apply left-0;
+  @apply right-0;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-between;
+  @apply bottom-min-9px;
+  @apply lg:bottom-min-12px;
+  @apply left-16px;
+  @apply right-15px;
+  @apply lg:left-127px;
+  @apply lg:right-120px;
 }

@@ -72,7 +72,7 @@ const SearchScreen = (props) => {
           {app.searchResult.map((item, index) => (
             <SearchCard
               key={index}
-              image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+              image={images.dog_animal}
               title={item.name}
               username={item.username}
             />

@@ -7,15 +7,23 @@ import { connect } from "react-redux";
 // component
 import MenuDesktop from "../components/MenuDesktop";
 import TagsCard from "../components/TagsCard";
+import SkeletonTags from "../components/SkeletonTags";
 
 const TagsScreen = (props) => {
   const { app, getTags } = props;
   const [tagsErr, setTagsErr] = useState("");
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    getTags().catch((err) => {
-      setTagsErr(err.message);
-    });
+    setLoader(true);
+    getTags()
+      .then(() => {
+        setLoader(false);
+      })
+      .catch((err) => {
+        setLoader(false);
+        setTagsErr(err.message);
+      });
   }, []);
 
   return (
@@ -43,6 +51,9 @@ const TagsScreen = (props) => {
               label={`${item.count} Questions`}
             />
           ))}
+
+          {/* loader */}
+          {loader && <SkeletonTags />}
 
           {/* error fetch */}
           {tagsErr !== "" && (

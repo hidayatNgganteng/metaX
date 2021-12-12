@@ -1,10 +1,10 @@
 import React from "react";
 import Skeleton from "@mui/material/Skeleton";
 
-const SkeletonSearch = () => {
+const SkeletonTags = () => {
   return (
-    <div className="w-full px-135px mt-55px flex flex-row flex-wrap justify-between">
-      <div className="w-30percent my-20px">
+    <div className="w-full pl-22px pr-135px mt-55px flex flex-row flex-wrap justify-between">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -22,7 +22,7 @@ const SkeletonSearch = () => {
           width={"40%"}
         />
       </div>
-      <div className="w-30percent my-20px">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -40,7 +40,7 @@ const SkeletonSearch = () => {
           width={"40%"}
         />
       </div>
-      <div className="w-30percent my-20px">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -58,7 +58,7 @@ const SkeletonSearch = () => {
           width={"40%"}
         />
       </div>
-      <div className="w-30percent my-20px">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -76,7 +76,7 @@ const SkeletonSearch = () => {
           width={"40%"}
         />
       </div>
-      <div className="w-30percent my-20px">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -94,7 +94,7 @@ const SkeletonSearch = () => {
           width={"40%"}
         />
       </div>
-      <div className="w-30percent my-20px">
+      <div className="w-18percent my-20px">
         <Skeleton
           variant="rectangular"
           className="skeleton-background"
@@ -116,4 +116,4 @@ const SkeletonSearch = () => {
   );
 };
 
-export default SkeletonSearch;
+export default SkeletonTags;

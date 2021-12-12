@@ -9,12 +9,14 @@ import MenuDesktop from "../components/MenuDesktop";
 import Profile from "../components/Profile";
 import SearchCard from "../components/SearchCard";
 import ButtonComponent from "../components/ButtonComponent";
+import SkeletonSearch from "../components/SkeletonSearch";
 
 const SearchScreen = (props) => {
   const params = useParams();
   const { app, searchData, removeSearchResult } = props;
   const [hasMoreResult, setHasMoreResult] = useState(true);
   const [resultErr, setResultErr] = useState("");
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     removeSearchResult();
@@ -22,15 +24,18 @@ const SearchScreen = (props) => {
   }, []);
 
   const handleSearchData = (page) => {
+    setLoader(true);
     searchData({
       page,
       pageSize: params.pageSize,
       query: params.query,
     })
       .then((res) => {
+        setLoader(false);
         setHasMoreResult(res.hasMoreItems);
       })
       .catch((err) => {
+        setLoader(false);
         setResultErr(err.message);
       });
   };
@@ -72,8 +77,11 @@ const SearchScreen = (props) => {
           ))}
         </div>
 
+        {/* loader */}
+        {loader && <SkeletonSearch />}
+
         {/* empty data */}
-        {!app.searchResult.length && (
+        {!app.searchResult.length && !loader && (
           <div className="lg:px-135px lg:mt-20px">
             <h4 className="text-white">Empty Data</h4>
           </div>

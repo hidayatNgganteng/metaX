@@ -131,6 +131,6 @@ body {
   @apply lg:right-120px;
 }
 
-.profile-skeleton {
+.skeleton-background {
   @apply bg-white-30 !important;
 }

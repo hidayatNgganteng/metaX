@@ -64,6 +64,7 @@ module.exports = {
         "262px": "262px",
         contentWidth: "calc(100% - 82px - 375px)",
         tagsContentWidth: "calc(100% - 82px)",
+        "30percent": "30%",
       },
       fontSize: {
         "12px": "12px",

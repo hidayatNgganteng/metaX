@@ -21,4 +21,11 @@ $ yarn run start
 #### 3. Result Search Screen
 
 ## Screenshoot
-![ss-flashcoffee](./src/assets/images/FlashCoffeeGrid.png)
+
+#### > Mobile
+
+![ss-mobile](./src/assets/ss/mobile.png)
+
+#### > Desktop
+
+![ss-desktop](./src/assets/ss/desktop.png)

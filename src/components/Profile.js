@@ -10,6 +10,7 @@ import { images } from "../assets/index";
 // component
 import TabPanel from "../components/TabPanel";
 import ProfileCard from "../components/ProfileCard";
+import SkeletonProfile from "../components/SkeletonProfile";
 
 const Profile = (props) => {
   const { getFollowers, getFollowing, app } = props;
@@ -71,11 +72,7 @@ const Profile = (props) => {
             pageStart={1}
             loadMore={handleGetFollowers}
             hasMore={hasMoreFollowers}
-            loader={
-              <div className="text-center" key={0}>
-                loading data ...
-              </div>
-            }
+            loader={<SkeletonProfile key={0} />}
             useWindow={false}
           >
             {app.followers.map((item, index) => (
@@ -102,11 +99,7 @@ const Profile = (props) => {
             pageStart={1}
             loadMore={handleGetFollowing}
             hasMore={hasMoreFollowing}
-            loader={
-              <div className="text-center" key={0}>
-                loading data ...
-              </div>
-            }
+            loader={<SkeletonProfile key={1} />}
             useWindow={false}
           >
             {app.following.map((item, index) => (

@@ -130,3 +130,7 @@ body {
   @apply lg:left-127px;
   @apply lg:right-120px;
 }
+
+.profile-skeleton {
+  @apply bg-white-30 !important;
+}

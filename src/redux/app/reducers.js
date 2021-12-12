@@ -4,6 +4,7 @@ const initialState = {
   followers: [],
   following: [],
   searchResult: [],
+  tags: [],
 };
 
 const reducers = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const reducers = (state = initialState, action) => {
       return {
         ...state,
         searchResult: [],
+      };
+    case actionTypes.SET_TAGS:
+      return {
+        ...state,
+        tags: action.data,
       };
     default:
       return state;

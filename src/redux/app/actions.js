@@ -16,6 +16,11 @@ const setSearchResult = (data) => ({
   data,
 });
 
+const setTags = (data) => ({
+  type: actionTypes.SET_TAGS,
+  data,
+});
+
 export const removeSearchResult = () => ({
   type: actionTypes.REMOVE_SEARCH_RESULT,
 });
@@ -73,6 +78,23 @@ export const searchData = ({ page, pageSize, query }) => {
           resolve({
             hasMoreItems: res.data.data.length ? true : false,
           });
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+};
+
+export const getTags = () => {
+  return (dispatch) =>
+    new Promise((resolve, reject) => {
+      const endpoint = `/tags`;
+
+      api
+        .get(endpoint)
+        .then((res) => {
+          dispatch(setTags(res.data));
+          resolve();
         })
         .catch((err) => {
           reject(err);

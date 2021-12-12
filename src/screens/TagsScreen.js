@@ -1,189 +1,23 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { images } from "../assets/index";
+import { getTags } from "../redux/app/actions";
+import { connect } from "react-redux";
 // component
 import MenuDesktop from "../components/MenuDesktop";
 import TagsCard from "../components/TagsCard";
 
-const tagsDummy = [
-  {
-    tag1: "Cool",
-    tag2: "Hard",
-    label: "350 Questions",
-  },
-  {
-    tag1: "Beautiful",
-    tag2: "Medium",
-    label: "210 Questions",
-  },
-  {
-    tag1: "Easy",
-    tag2: "Easy",
-    label: "190 Questions",
-  },
-  {
-    tag1: "Summa...",
-    tag2: "Summary",
-    label: "105 Questions",
-  },
-  {
-    tag1: "Hot",
-    tag2: "Hot",
-    label: "80 Questions",
-  },
-  {
-    tag1: "Passag...",
-    tag2: "Passage Specific",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Very lo...",
-    tag2: "Very long taaaaaaa...",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-  {
-    tag1: "Tag",
-    tag2: "Tag",
-    label: "50 Questions",
-  },
-];
+const TagsScreen = (props) => {
+  const { app, getTags } = props;
+  const [tagsErr, setTagsErr] = useState("");
 
-const TagsScreen = () => {
+  useEffect(() => {
+    getTags().catch((err) => {
+      setTagsErr(err.message);
+    });
+  }, []);
+
   return (
     <div className="lg:flex lg:flex-row lg:justify-between">
       <MenuDesktop />
@@ -201,18 +35,33 @@ const TagsScreen = () => {
           Tags
         </h3>
         <div className="flex flex-row flex-wrap justify-between lg:justify-start px-25px lg:px-231px lg:mt-min-2px">
-          {tagsDummy.map((item, index) => (
+          {app.tags.map((item, index) => (
             <TagsCard
               key={index}
-              tag1={item.tag1}
-              tag2={item.tag2}
-              label={item.label}
+              tag1={item.name}
+              tag2={item.name}
+              label={`${item.count} Questions`}
             />
           ))}
+
+          {/* error fetch */}
+          {tagsErr !== "" && (
+            <div className="lg:px-135px lg:mt-20px">
+              <h4 className="text-white">{tagsErr}</h4>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default TagsScreen;
+const mapStateToProps = ({ app }) => ({
+  app,
+});
+
+const mapDispatchToProps = {
+  getTags,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TagsScreen);

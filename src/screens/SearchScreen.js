@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -10,49 +9,6 @@ import MenuDesktop from "../components/MenuDesktop";
 import Profile from "../components/Profile";
 import SearchCard from "../components/SearchCard";
 import ButtonComponent from "../components/ButtonComponent";
-
-const dummySearch = [
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-  {
-    image: images.dog_animal,
-    title: "This is a title",
-    username: "by username",
-  },
-];
 
 const SearchScreen = (props) => {
   const params = useParams();

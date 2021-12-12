@@ -6,9 +6,10 @@ import { getFollowers, getFollowing } from "../redux/app/actions";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { images } from "../assets/index";
+// component
 import TabPanel from "../components/TabPanel";
 import ProfileCard from "../components/ProfileCard";
-import { images } from "../assets/index";
 
 const Profile = (props) => {
   const { getFollowers, getFollowing, app } = props;

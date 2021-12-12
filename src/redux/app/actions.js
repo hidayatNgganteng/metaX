@@ -11,6 +11,15 @@ const setFollowing = (data) => ({
   data,
 });
 
+const setSearchResult = (data) => ({
+  type: actionTypes.SET_SEARCH_RESULT,
+  data,
+});
+
+export const removeSearchResult = () => ({
+  type: actionTypes.REMOVE_SEARCH_RESULT,
+});
+
 export const getFollowers = ({ page }) => {
   return (dispatch) =>
     new Promise((resolve, reject) => {
@@ -39,6 +48,28 @@ export const getFollowing = ({ page }) => {
         .get(endpoint)
         .then((res) => {
           dispatch(setFollowing(res.data.data));
+          resolve({
+            hasMoreItems: res.data.data.length ? true : false,
+          });
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+};
+
+export const searchData = ({ page, pageSize, query }) => {
+  return (dispatch) =>
+    new Promise((resolve, reject) => {
+      const endpoint =
+        query === "null"
+          ? `/users/all?page=${page}&pageSize=${pageSize}`
+          : `/users/all?page=${page}&pageSize=${pageSize}&keyword=${query}`;
+
+      api
+        .get(endpoint)
+        .then((res) => {
+          dispatch(setSearchResult(res.data.data));
           resolve({
             hasMoreItems: res.data.data.length ? true : false,
           });

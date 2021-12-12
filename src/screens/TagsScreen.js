@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MenuDesktop from "../components/MenuDesktop";
 import { images } from "../assets/index";
+// component
+import MenuDesktop from "../components/MenuDesktop";
 import TagsCard from "../components/TagsCard";
 
 const tagsDummy = [

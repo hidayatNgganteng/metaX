@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import { images } from "../assets/index";
+// component
 import ButtonComponent from "../components/ButtonComponent";
 import SliderComponent from "../components/SliderComponent";
 import MenuMobile from "../components/MenuMobile";
@@ -51,15 +51,15 @@ const sliderMax = 21;
 const sliderInterval = 3;
 
 const HomeScreen = () => {
-  const [search, setSearch] = useState("");
-  const [sliderValue, setSliderValue] = useState(15);
+  const [query, setQuery] = useState("");
+  const [pageSize, setPageSize] = useState(15);
 
   const onSearch = (event) => {
-    setSearch(event.target.value);
+    setQuery(event.target.value);
   };
 
   const onSlide = (event, newValue) => {
-    setSliderValue(newValue);
+    setPageSize(newValue);
   };
 
   return (
@@ -77,7 +77,7 @@ const HomeScreen = () => {
             <div className="mt-4 lg:mt-19px">
               <InputComponent
                 placeholder="Keyword"
-                value={search}
+                value={query}
                 onChange={onSearch}
               />
             </div>
@@ -96,7 +96,7 @@ const HomeScreen = () => {
           <div className="mt-7px pl-17px lg:pl-127px pr-16px lg:pr-129px relative">
             <SliderComponent
               data={dataSlider}
-              defaultValue={sliderValue}
+              defaultValue={pageSize}
               interval={sliderInterval}
               min={sliderMin}
               max={sliderMax}
@@ -106,7 +106,7 @@ const HomeScreen = () => {
               {dataSlider.map((item, index) => (
                 <div
                   className={`text-14px lg:text-16px ${
-                    sliderValue === item.value ? "text-white" : "text-white-50"
+                    pageSize === item.value ? "text-white" : "text-white-50"
                   }`}
                   key={index}
                 >
@@ -120,7 +120,7 @@ const HomeScreen = () => {
 
         <div className="absolute left-0 right-0 bottom-0 lg:relative mt-0 lg:mt-336px">
           <div className="mb-24px pl-22px lg:pl-127px pr-18px lg:pr-129px">
-            <Link to="/search">
+            <Link to={`/search/${query === "" ? null : query}/${pageSize}`}>
               <ButtonComponent label="SEARCH" />
             </Link>
           </div>
@@ -134,8 +134,4 @@ const HomeScreen = () => {
   );
 };
 
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default HomeScreen;

@@ -8,7 +8,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/search" element={<SearchScreen />} />
+        <Route path="/search/:query/:pageSize" element={<SearchScreen />} />
         <Route path="/tags" element={<TagsScreen />} />
         <Route path="/" element={<HomeScreen />} />
       </Routes>

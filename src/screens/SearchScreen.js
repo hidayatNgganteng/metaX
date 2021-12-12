@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroller";
 import { connect } from "react-redux";
 import { images } from "../assets/index";
 import { searchData, removeSearchResult } from "../redux/app/actions";
@@ -15,7 +16,7 @@ const SearchScreen = (props) => {
   const params = useParams();
   const { app, searchData, removeSearchResult } = props;
   const [hasMoreResult, setHasMoreResult] = useState(true);
-  const [nextPage, setNextPage] = useState(1);
+  const [currPage, setCurrPage] = useState(1);
   const [resultErr, setResultErr] = useState("");
   const [loader, setLoader] = useState(false);
 
@@ -33,7 +34,7 @@ const SearchScreen = (props) => {
     })
       .then((res) => {
         setLoader(false);
-        setNextPage(res.nextPage);
+        setCurrPage(res.currPage);
         setHasMoreResult(res.hasMoreItems);
       })
       .catch((err) => {
@@ -68,15 +69,38 @@ const SearchScreen = (props) => {
             </div>
           </Link>
         </button>
-        <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
-          {app.searchResult.map((item, index) => (
-            <SearchCard
-              key={index}
-              image={images.dog_animal}
-              title={item.name}
-              username={item.username}
-            />
-          ))}
+        {/* items for desktop */}
+        <div className="hidden lg:block">
+          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+            {app.searchResult.map((item, index) => (
+              <SearchCard
+                key={index}
+                image={images.dog_animal}
+                title={item.name}
+                username={item.username}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="block lg:hidden">
+          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+            <InfiniteScroll
+              threshold={50}
+              pageStart={currPage}
+              loadMore={handleSearchData}
+              hasMore={hasMoreResult}
+            >
+              {app.searchResult.map((item, index) => (
+                <SearchCard
+                  key={index}
+                  image={images.dog_animal}
+                  title={item.name}
+                  username={item.username}
+                />
+              ))}
+            </InfiniteScroll>
+          </div>
         </div>
 
         {/* loader */}
@@ -98,7 +122,7 @@ const SearchScreen = (props) => {
 
         {hasMoreResult && (
           <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
-            <button onClick={() => handleSearchData(nextPage)}>
+            <button onClick={() => handleSearchData(currPage + 1)}>
               <ButtonComponent label="MORE" />
             </button>
           </div>

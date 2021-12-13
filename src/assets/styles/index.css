@@ -84,7 +84,7 @@ body {
   @apply text-borderTabGray;
   @apply opacity-80;
   @apply normal-case;
-  min-height: 44px;
+  @apply min-h-44px;
 }
 
 .profile .css-1ujnqem-MuiTabs-root {

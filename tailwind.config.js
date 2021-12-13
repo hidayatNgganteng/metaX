@@ -178,6 +178,9 @@ module.exports = {
         "min-9px": "-9px",
         "min-12px": "-12px",
       },
+      minHeight: {
+        "44px": "44px",
+      },
     },
     screens: {
       sm: "576px",

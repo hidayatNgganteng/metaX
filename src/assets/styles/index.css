@@ -72,12 +72,12 @@ body {
   @apply mt-21px;
 }
 
-.profile .css-1gsv261 {
+.profileTab .css-1gsv261 {
   @apply border-b-2;
   @apply border-borderGray;
 }
 
-.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+.profileTab .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
   @apply w-6/12;
   @apply text-16px;
   @apply font-normal;
@@ -87,11 +87,11 @@ body {
   @apply min-h-44px;
 }
 
-.profile .css-1ujnqem-MuiTabs-root {
+.profileTab .css-1ujnqem-MuiTabs-root {
   @apply min-h-44px;
 }
 
-.profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+.profileTab .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
   @apply text-16px;
   @apply font-bold;
   @apply text-white;
@@ -99,7 +99,7 @@ body {
   @apply min-h-44px;
 }
 
-.profile .css-1aquho2-MuiTabs-indicator {
+.profileTab .css-1aquho2-MuiTabs-indicator {
   @apply bg-white;
 }
 

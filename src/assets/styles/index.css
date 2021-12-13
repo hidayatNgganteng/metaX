@@ -88,7 +88,7 @@ body {
 }
 
 .profile .css-1ujnqem-MuiTabs-root {
-  min-height: 44px;
+  @apply min-h-44px;
 }
 
 .profile .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
@@ -96,7 +96,7 @@ body {
   @apply font-bold;
   @apply text-white;
   @apply font-ubuntu;
-  min-height: 44px;
+  @apply min-h-44px;
 }
 
 .profile .css-1aquho2-MuiTabs-indicator {
@@ -111,7 +111,7 @@ body {
   @apply bg-gradient-to-r;
   @apply absolute;
   @apply rounded-12px;
-  top: 20px;
+  @apply top-20px;
   @apply left-0;
 }
 

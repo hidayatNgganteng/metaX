@@ -177,6 +177,7 @@ module.exports = {
         "15px": "15px",
         "min-9px": "-9px",
         "min-12px": "-12px",
+        "20px": "20px",
       },
       minHeight: {
         "44px": "44px",

@@ -7,7 +7,7 @@ body {
   @apply font-ubuntu;
 }
 
-.css-187mznn-MuiSlider-root {
+.MuiSlider-root {
   height: 8px !important;
   color: transparent !important;
 }
@@ -23,7 +23,7 @@ body {
   @apply bg-white-30;
 }
 
-.sliderStyle .css-eg0mwd-MuiSlider-thumb {
+.sliderStyle .MuiSlider-thumb {
   @apply border-6;
   @apply border-gradientColorStop;
   @apply h-25px;
@@ -31,19 +31,13 @@ body {
   @apply bg-dark;
 }
 
-.sliderStyle .css-1eoe787-MuiSlider-markLabel {
+.sliderStyle .MuiSlider-markLabel {
   @apply text-white;
   @apply text-sm;
   @apply opacity-25;
 }
 
-.sliderStyle .css-yafthl-MuiSlider-markLabel {
-  @apply text-white;
-  @apply text-sm;
-  @apply opacity-25;
-}
-
-.sliderStyle .css-6cwnna-MuiSlider-mark {
+.sliderStyle .MuiSlider-mark {
   @apply bg-transparent;
 }
 
@@ -68,16 +62,17 @@ body {
   @apply lg:block;
 }
 
-.profileTab {
+.profile .MuiBox-root {
   @apply mt-21px;
 }
 
-.profileTab .css-1gsv261 {
+.profile .MuiTabs-root {
   @apply border-b-2;
   @apply border-borderGray;
+  @apply min-h-44px;
 }
 
-.profileTab .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+.profile .MuiButtonBase-root {
   @apply w-6/12;
   @apply text-16px;
   @apply font-normal;
@@ -87,19 +82,15 @@ body {
   @apply min-h-44px;
 }
 
-.profileTab .css-1ujnqem-MuiTabs-root {
-  @apply min-h-44px;
-}
-
-.profileTab .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+.profile .Mui-selected {
   @apply text-16px;
   @apply font-bold;
-  @apply text-white;
+  @apply text-white !important;
   @apply font-ubuntu;
   @apply min-h-44px;
 }
 
-.profileTab .css-1aquho2-MuiTabs-indicator {
+.profile .MuiTabs-indicator {
   @apply bg-white;
 }
 

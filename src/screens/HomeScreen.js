@@ -63,10 +63,10 @@ const HomeScreen = () => {
   };
 
   return (
-    <div className="lg:flex lg:flex-row lg:justify-between">
+    <div className="lg:flex lg:flex-row lg:justify-between lg:h-screen">
       <MenuDesktop />
 
-      <div className="lg:w-contentWidth">
+      <div className="lg:w-contentWidth lg:overflow-scroll">
         <div>
           <div className="pl-22px pr-18px lg:pl-127px lg:pr-129px">
             <img

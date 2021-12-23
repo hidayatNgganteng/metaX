@@ -44,10 +44,10 @@ const SearchScreen = (props) => {
   };
 
   return (
-    <div className="lg:flex lg:flex-row lg:justify-between">
+    <div className="lg:flex lg:flex-row lg:justify-between lg:h-screen">
       <MenuDesktop />
 
-      <div className="lg:w-contentWidth lg:h-screen lg:overflow-scroll">
+      <div className="lg:w-contentWidth lg:overflow-scroll">
         <div className="fixed bg-bgDark w-full h-71px top-0 left-0 right-0 px-26px lg:hidden">
           <Link to="/">
             <div className="flex flex-row items-center h-full">

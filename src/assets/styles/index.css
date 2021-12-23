@@ -55,13 +55,6 @@ body {
   @apply justify-center;
 }
 
-.profile {
-  @apply w-375px;
-  @apply bg-dark;
-  @apply hidden;
-  @apply lg:block;
-}
-
 .profile .MuiBox-root {
   @apply mt-21px;
 }

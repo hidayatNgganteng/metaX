@@ -27,10 +27,10 @@ const TagsScreen = (props) => {
   }, []);
 
   return (
-    <div className="lg:flex lg:flex-row lg:justify-between">
+    <div className="lg:flex lg:flex-row lg:justify-between lg:h-screen">
       <MenuDesktop />
 
-      <div className="lg:w-tagsContentWidth">
+      <div className="lg:w-tagsContentWidth lg:overflow-scroll">
         <div className="fixed bg-bgDark w-full h-69px top-0 left-0 right-0 px-22px lg:hidden">
           <Link to="/">
             <div className="flex flex-row items-center h-full">

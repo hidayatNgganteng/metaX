@@ -57,68 +57,72 @@ const Profile = (props) => {
   };
 
   return (
-    <Box className="profile h-screen overflow-scroll">
-      <Box className="profileTab">
-        <Tabs value={tabValue} onChange={handleChange}>
-          <Tab label="Followers" {...allyProps(0)} />
-          <Tab label="Following" {...allyProps(1)} />
-        </Tabs>
-      </Box>
+    <Box className="profile w-375px bg-dark hidden lg:block h-screen overflow-scroll">
+      <div className="fixed bg-dark z-50 w-375px">
+        <Box>
+          <Tabs value={tabValue} onChange={handleChange}>
+            <Tab label="Followers" {...allyProps(0)} />
+            <Tab label="Following" {...allyProps(1)} />
+          </Tabs>
+        </Box>
+      </div>
 
-      <TabPanel value={tabValue} index={0}>
-        <div className="px-4 py-3.5 h-full mt-2px">
-          <InfiniteScroll
-            threshold={50}
-            pageStart={1}
-            loadMore={handleGetFollowers}
-            hasMore={hasMoreFollowers}
-            loader={<SkeletonProfile key={0} />}
-            useWindow={false}
-          >
-            {app.followers.map((item, index) => (
-              <ProfileCard
-                key={index}
-                image={index % 2 === 0 ? images.profile_1 : images.profile_2}
-                name={item.name}
-                username={item.username}
-                isFollowing={item.isFollowing}
-                onPress={() => null}
-              />
-            ))}
-          </InfiniteScroll>
+      <div className="mt-66px">
+        <TabPanel value={tabValue} index={0}>
+          <div className="px-4 py-3.5 mt-2px">
+            <InfiniteScroll
+              threshold={50}
+              pageStart={1}
+              loadMore={handleGetFollowers}
+              hasMore={hasMoreFollowers}
+              loader={<SkeletonProfile key={0} />}
+              useWindow={false}
+            >
+              {app.followers.map((item, index) => (
+                <ProfileCard
+                  key={index}
+                  image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+                  name={item.name}
+                  username={item.username}
+                  isFollowing={item.isFollowing}
+                  onPress={() => null}
+                />
+              ))}
+            </InfiniteScroll>
 
-          {followersErr !== "" && (
-            <div className="text-white">{followersErr}</div>
-          )}
-        </div>
-      </TabPanel>
-      <TabPanel value={tabValue} index={1}>
-        <div className="px-4 py-3.5 h-full mt-2px">
-          <InfiniteScroll
-            threshold={50}
-            pageStart={1}
-            loadMore={handleGetFollowing}
-            hasMore={hasMoreFollowing}
-            loader={<SkeletonProfile key={1} />}
-            useWindow={false}
-          >
-            {app.following.map((item, index) => (
-              <ProfileCard
-                key={index}
-                image={index % 2 === 0 ? images.profile_1 : images.profile_2}
-                name={item.name}
-                username={item.username}
-                isFollowing={item.isFollowing}
-                onPress={() => null}
-              />
-            ))}
-          </InfiniteScroll>
+            {followersErr !== "" && (
+              <div className="text-white">{followersErr}</div>
+            )}
+          </div>
+        </TabPanel>
+        <TabPanel value={tabValue} index={1}>
+          <div className="px-4 py-3.5 h-full mt-2px">
+            <InfiniteScroll
+              threshold={50}
+              pageStart={1}
+              loadMore={handleGetFollowing}
+              hasMore={hasMoreFollowing}
+              loader={<SkeletonProfile key={1} />}
+              useWindow={false}
+            >
+              {app.following.map((item, index) => (
+                <ProfileCard
+                  key={index}
+                  image={index % 2 === 0 ? images.profile_1 : images.profile_2}
+                  name={item.name}
+                  username={item.username}
+                  isFollowing={item.isFollowing}
+                  onPress={() => null}
+                />
+              ))}
+            </InfiniteScroll>
 
-          {followingErr !== "" && (
-            <div className="text-white">{followingErr}</div>
-          )}
-        </div>
-      </TabPanel>
+            {followingErr !== "" && (
+              <div className="text-white">{followingErr}</div>
+            )}
+          </div>
+        </TabPanel>
+      </div>
     </Box>
   );
 };

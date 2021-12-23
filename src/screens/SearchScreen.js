@@ -120,7 +120,7 @@ const SearchScreen = (props) => {
           </div>
         )}
 
-        {hasMoreResult && (
+        {!loader && resultErr === "" && hasMoreResult && (
           <div className="hidden lg:block mt-10 lg:px-128px lg:py-18px">
             <button onClick={() => handleSearchData(currPage + 1)}>
               <ButtonComponent label="MORE" />

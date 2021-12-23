@@ -70,8 +70,8 @@ const SearchScreen = (props) => {
           </Link>
         </button>
         {/* items for desktop */}
-        <div className="hidden lg:block">
-          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+        <div className="hidden lg:block pb-16">
+          <div className="px-108px flex flex-row flex-wrap mt-2px">
             {app.searchResult.map((item, index) => (
               <SearchCard
                 key={index}
@@ -82,9 +82,9 @@ const SearchScreen = (props) => {
             ))}
           </div>
         </div>
-
-        <div className="block lg:hidden">
-          <div className="block px-20px lg:px-108px lg:flex lg:flex-row lg:flex-wrap mt-min-14px lg:mt-2px">
+        {/* content mobile */}
+        <div className="block lg:hidden pb-10">
+          <div className="block px-20px mt-min-14px">
             <InfiniteScroll
               threshold={50}
               pageStart={currPage}

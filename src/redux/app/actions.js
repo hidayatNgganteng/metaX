@@ -35,7 +35,7 @@ export const getFollowers = ({ page }) => {
         .then((res) => {
           dispatch(setFollowers(res.data.data));
           resolve({
-            hasMoreItems: res.data.data.length ? true : false,
+            hasMoreItems: res.data.page < res.data.totalPages,
           });
         })
         .catch((err) => {
@@ -54,7 +54,7 @@ export const getFollowing = ({ page }) => {
         .then((res) => {
           dispatch(setFollowing(res.data.data));
           resolve({
-            hasMoreItems: res.data.data.length ? true : false,
+            hasMoreItems: res.data.page < res.data.totalPages,
           });
         })
         .catch((err) => {

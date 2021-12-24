@@ -57,7 +57,7 @@ const Profile = (props) => {
   };
 
   return (
-    <Box className="profile w-375px bg-dark hidden lg:block h-screen overflow-scroll">
+    <Box className="profile w-375px bg-dark hidden lg:block h-screen">
       <div className="fixed bg-dark z-50 w-375px">
         <Box>
           <Tabs value={tabValue} onChange={handleChange}>
@@ -69,9 +69,8 @@ const Profile = (props) => {
 
       <div className="mt-66px">
         <TabPanel value={tabValue} index={0}>
-          <div className="px-4 py-3.5 mt-2px">
+          <div className="px-4 py-3.5 mt-2px h-screen-min-66px overflow-auto">
             <InfiniteScroll
-              threshold={50}
               pageStart={1}
               loadMore={handleGetFollowers}
               hasMore={hasMoreFollowers}
@@ -96,9 +95,8 @@ const Profile = (props) => {
           </div>
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
-          <div className="px-4 py-3.5 h-full mt-2px">
+          <div className="px-4 py-3.5 mt-2px h-screen-min-66px overflow-auto">
             <InfiniteScroll
-              threshold={50}
               pageStart={1}
               loadMore={handleGetFollowing}
               hasMore={hasMoreFollowing}

@@ -38,6 +38,7 @@ module.exports = {
         "43vw": "43vw",
         "150px": "150px",
         "71px": "71px",
+        "screen-min-66px": "calc(100vh - 66px)",
       },
       width: {
         "16px": "16px",

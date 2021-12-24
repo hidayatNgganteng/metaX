@@ -26,6 +26,10 @@ const SearchScreen = (props) => {
   }, []);
 
   const handleSearchData = (page) => {
+    if (!hasMoreResult) {
+      return;
+    }
+
     setLoader(true);
     searchData({
       page,

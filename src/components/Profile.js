@@ -71,6 +71,7 @@ const Profile = (props) => {
         <TabPanel value={tabValue} index={0}>
           <div className="px-4 py-3.5 mt-2px h-screen-min-66px overflow-auto">
             <InfiniteScroll
+              initialLoad={false}
               pageStart={1}
               loadMore={handleGetFollowers}
               hasMore={hasMoreFollowers}
@@ -97,6 +98,7 @@ const Profile = (props) => {
         <TabPanel value={tabValue} index={1}>
           <div className="px-4 py-3.5 mt-2px h-screen-min-66px overflow-auto">
             <InfiniteScroll
+              initialLoad={false}
               pageStart={1}
               loadMore={handleGetFollowing}
               hasMore={hasMoreFollowing}

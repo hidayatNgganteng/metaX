@@ -28,7 +28,7 @@ export const removeSearchResult = () => ({
 export const getFollowers = ({ page }) => {
   return (dispatch) =>
     new Promise((resolve, reject) => {
-      const endpoint = `/users/all?page=${page}&pageSize=${10}`;
+      const endpoint = `/users/all?page=${page}&pageSize=${20}`;
 
       api
         .get(endpoint)
@@ -47,7 +47,7 @@ export const getFollowers = ({ page }) => {
 export const getFollowing = ({ page }) => {
   return (dispatch) =>
     new Promise((resolve, reject) => {
-      const endpoint = `/users/friends?page=${page}&pageSize=${10}`;
+      const endpoint = `/users/friends?page=${page}&pageSize=${20}`;
 
       api
         .get(endpoint)

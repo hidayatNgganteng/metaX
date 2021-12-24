@@ -42,7 +42,7 @@ const TagsScreen = (props) => {
         <h3 className="mt-94px ml-20px text-2xl text-white lg:ml-255px lg:mt-86px lg:text-30px font-bold">
           Tags
         </h3>
-        <div className="flex flex-row flex-wrap justify-between lg:justify-start px-25px lg:px-231px lg:mt-min-2px">
+        <div className="flex flex-row flex-wrap justify-between lg:justify-start px-25px lg:px-231px lg:mt-min-2px py-10">
           {app.tags.map((item, index) => (
             <TagsCard
               key={index}

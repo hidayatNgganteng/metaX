@@ -76,7 +76,7 @@ export const searchData = ({ page, pageSize, query }) => {
         .then((res) => {
           dispatch(setSearchResult(res.data.data));
           resolve({
-            hasMoreItems: res.data.data.length ? true : false,
+            hasMoreItems: res.data.page < res.data.totalPages,
             currPage: res.data.page,
           });
         })

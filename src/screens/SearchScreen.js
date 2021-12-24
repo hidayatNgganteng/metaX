@@ -86,10 +86,11 @@ const SearchScreen = (props) => {
         <div className="block lg:hidden pb-10">
           <div className="block px-20px mt-min-14px">
             <InfiniteScroll
-              threshold={50}
+              threshold={250}
+              initialLoad={false}
               pageStart={currPage}
               loadMore={handleSearchData}
-              hasMore={hasMoreResult}
+              hasMore={!loader && hasMoreResult}
             >
               {app.searchResult.map((item, index) => (
                 <SearchCard

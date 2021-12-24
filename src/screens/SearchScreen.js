@@ -52,7 +52,7 @@ const SearchScreen = (props) => {
       <MenuDesktop />
 
       <div className="lg:w-contentWidth lg:overflow-scroll">
-        <div className="fixed bg-bgDark w-full h-71px top-0 left-0 right-0 px-26px lg:hidden">
+        <div className="fixed bg-bgDark w-full h-71px top-0 left-0 right-0 px-26px lg:hidden z-50">
           <Link to="/">
             <div className="flex flex-row items-center h-full">
               <img src={images.back_arrow} className="w-3 h-5" />
